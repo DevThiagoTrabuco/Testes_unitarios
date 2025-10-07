@@ -15,7 +15,11 @@ public class calculadoraTest {
 
     @Test
     public void deveSomarDoisValores(){
-        Assertions.assertEquals(30, calculadora.somar(10, 20));
+        vA = 20;
+        vB = 10;
+        result = calculadora.somar(vA, vB);
+
+        Assertions.assertEquals(30, result);
     }
 
     @Test
