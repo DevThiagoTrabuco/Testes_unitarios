@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 public class calculadoraTest {
     private Calculadora calculadora;
-    double vA, vB;
+    double vA = 10, vB = 5;
     double result;
 
     @BeforeEach
@@ -15,37 +15,25 @@ public class calculadoraTest {
 
     @Test
     public void deveSomarDoisValores(){
-        vA = 20;
-        vB = 10;
         result = calculadora.somar(vA, vB);
-
-        Assertions.assertEquals(30, result);
+        Assertions.assertEquals(15, result);
     }
 
     @Test
     public void deveSubtrairDoisValores(){
-        vA = 20;
-        vB = 10;
         result = calculadora.subtrair(vA, vB);
-
-        Assertions.assertEquals(10, result);
+        Assertions.assertEquals(5, result);
     }
 
     @Test
     public void deveMultiplicarDoisValores() {
-        vA = 10;
-        vB = 2;
         result = calculadora.multiplicar(vA, vB);
-
-        Assertions.assertEquals(20, result);
+        Assertions.assertEquals(50, result);
     }
 
     @Test
     public void deveDividirDoisValores() {
-        vA = 10;
-        vB = 2;
         result = calculadora.dividir(vA, vB);
-
-        Assertions.assertEquals(5, result);
+        Assertions.assertEquals(2, result);
     }
 }
