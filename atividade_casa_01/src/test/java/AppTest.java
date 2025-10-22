@@ -243,24 +243,21 @@ public class AppTest {
 //  Testar criação de vários produtos e realizar vendas com estoque compartilhado. [Não entendi esse]
     @Test
     public void deveRealizarVendaComEstoqueCompartilhado(){
-        qtdVendida = 6;
-        Produto prod1 = new Produto("Banana", 2.5, 7);
-        Produto prod2 = new Produto("Maçã", 1.75, 15);
-        Produto prod3 = new Produto("Laranja", 5, 12);
+        qtdVendida = 3;
+        produto = new Produto("Produto 16", 2.5, 10);
 
-        Venda venda1 = new Venda(prod1, qtdVendida);
-        Venda venda2 = new Venda(prod2, qtdVendida);
-        Venda venda3 = new Venda(prod3, qtdVendida);
+        Venda venda1 = new Venda(produto, qtdVendida);
+        Venda venda2 = new Venda(produto, qtdVendida);
+        venda1.realizarVenda();
+        venda2.realizarVenda();
 
-        Assertions.assertTrue(venda1.realizarVenda());
-        Assertions.assertTrue(venda2.realizarVenda());
-        Assertions.assertTrue(venda3.realizarVenda());
+        Assertions.assertEquals(4, produto.getEstoque());
     }
 
 //  Testar calcular total de venda quando o preço do produto for alterado antes da venda.
     @Test
     public void deveCalcularTotalComValorAlterado(){
-        nomeProduto = "Produto 16";
+        nomeProduto = "Produto 17";
         precoProduto = 10;
         double precoNovo = 12.5;
         estoqueProduto = 10;
@@ -278,7 +275,7 @@ public class AppTest {
 //  Testar comportamento da venda quando o estoque inicial é zero.
     @Test
     public void deveRealizarVendaComEstoqueZerado(){
-        nomeProduto = "Produto 17";
+        nomeProduto = "Produto 18";
         precoProduto = 10;
         estoqueProduto = 0;
         qtdVendida = 5;
@@ -292,7 +289,7 @@ public class AppTest {
 //  Testar aumento do estoque após uma reposição e verificar se a venda é bem-sucedida posteriormente.
     @Test
     public void deveReporEstoqueERealizarVenda(){
-        nomeProduto = "Produto 18";
+        nomeProduto = "Produto 19";
         precoProduto = 10;
         estoqueProduto = 10;
         int reposicao = 5;
