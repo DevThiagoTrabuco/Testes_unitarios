@@ -4,7 +4,7 @@ Este projeto tem como objetivo avaliar o desempenho da API REST implementada par
 
 ## Endpoint Testado
 
-`http://localhost:3000/cep/44004000`
+`http://localhost:3000/cep/44004100`
 
 ## Parâmetros
 
@@ -14,19 +14,26 @@ Este projeto tem como objetivo avaliar o desempenho da API REST implementada par
 
 ## Resultados do Teste
 
+![Summary Report](images/aggregated_report.png)
+
 ### Tempo de Resposta
 
-- **Tempo de Resposta Médio**: 179 ms
-- **Tempo de Resposta Mínimo**: 131 ms
-- **Tempo de Resposta Máximo**: 928 ms
-- **Throughput**: 117,5 requisições/segundo
-- **Error %**: 0.00%
+- **Tempo de Resposta Médio**: 7695 ms
+- **Tempo de Resposta Mínimo**: 9 ms
+- **Tempo de Resposta Máximo**: 60969 ms
+- **Throughput**: 16.4 requisições/segundo
+- **Error %**: 4.24%
 
-## Gráficos de Desempenho
+### Erro Percentual
 
-### Taxa de Transferência (Throughput)
+- **Error %**: 4.24%  
+Durante o teste, houveram erros de requisição.
 
-### Resultados em Tabela
+### Pico de Conexões Ativas
+
+O gráfico a seguir mostra que o número de **Active Threads** (conexões ativas) atingiu entre 240 e 270 durante o teste. Esse pico ocorreu entre **00:00:07** e **00:00:45**, indicando um período em que o servidor estava sob carga máxima.
+
+![Active Threads Over Time](images/active_threads_over_time.png)
 
 ## Conclusão
 
