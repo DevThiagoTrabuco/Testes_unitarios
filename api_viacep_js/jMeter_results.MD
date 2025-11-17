@@ -27,7 +27,7 @@ Este projeto tem como objetivo avaliar o desempenho da API REST implementada par
 ### Erro Percentual
 
 - **Error %**: 4.24%  
-Durante o teste, houveram erros de requisição.
+  Durante o teste, houveram erros de requisição.
 
 ### Pico de Conexões Ativas
 
@@ -37,4 +37,8 @@ O gráfico a seguir mostra que o número de **Active Threads** (conexões ativas
 
 ## Conclusão
 
-A análise de desempenho revela que a API REST para consulta ao ViaCEP opera de forma eficiente sob a carga de teste aplicada, com uma taxa de erro nula (0.00%). Um ponto de atenção observado foi o bloqueio de IP durante a execução dos testes, o que indica a provável existência de um mecanismo de limitação de requisições (_rate limiting_) por parte do serviço externo ViaCEP. Portanto, para futuros testes de carga mais intensivos, é crucial considerar esses limites de requisição para evitar a distorção dos resultados e garantir a integridade da avaliação.
+A análise de desempenho da API REST para consulta ao ViaCEP revela pontos críticos sob a carga de teste aplicada. Foi observada uma **taxa de erro de 4,24%** e um tempo de resposta médio elevado de **7695 ms**, com picos de até **60969 ms**. Esses números indicam que a aplicação apresentou instabilidade e degradação de performance sob estresse.
+
+A causa mais provável para esses problemas é o bloqueio de IP identificado durante os testes, que sugere a existência de um mecanismo de limitação de requisições (_rate limiting_) por parte do serviço externo ViaCEP. Portanto, os erros e a alta latência podem não ser uma falha da API em si, mas uma consequência da dependência de um serviço externo com restrições.
+
+Para avaliações futuras, é crucial considerar esses limites. Estratégias como o uso de _mocks_ para o serviço externo ou a distribuição de carga em um período maior podem fornecer uma medição mais precisa do desempenho real da sua aplicação, isolando-a de fatores externos.
